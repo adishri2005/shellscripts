@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "Prime numbers between 1 and 100 are:"
+for ((n = 2; n <= 100; n++)); do
+    is_prime=1
+    for ((div = 2; div * div <= n; div++)); do
+        if [ $((n % div)) -eq 0 ]; then
+            is_prime=0
+            break
+        fi
+    done
+
+    if [ $is_prime -eq 1 ]; then
+        echo $n
+    fi
+done
